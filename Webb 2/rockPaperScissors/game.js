@@ -78,22 +78,18 @@ function game(userChoice) {
         }
         score.innerHTML = ('You have ' + userScore + ' while the computer has ' + cpuScore)
         if (userScore == 5) {
-            status.innerHTML = 'You win the game!'
-            isPlaying = false;
-            restart();
+            restart('win');
         } else if (cpuScore == 5) {
-            status.innerHTML = 'You lose the game!'
-            isPlaying = false;
-            restart();
+            restart('lose');
         }
 
-        function restart() {
+        function restart(winlose) {
+            status.innerHTML = ('You ' + winlose + ' the game!')
+            isPlaying = false;
             var btn = document.createElement("BUTTON");
             btn.innerHTML = "Restart";
             document.body.appendChild(btn);
             btn.addEventListener('click', function () {
-                userScore = 0;
-                cpuScore = 0;
                 window.location.reload(true);
 
             });
