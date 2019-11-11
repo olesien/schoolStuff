@@ -1,8 +1,10 @@
-let Rock = document.querySelector('.Rock');
-let Paper = document.querySelector('.Paper');
-let Scissors = document.querySelector('.Scissors');
+const Rock = document.querySelector('.Rock');
+const Paper = document.querySelector('.Paper');
+const Scissors = document.querySelector('.Scissors');
 const status = document.querySelector('#status');
 const score = document.querySelector('#score');
+const user = document.querySelector('#user');
+const cpu = document.querySelector('#cpu');
 
 let userScore = 0,
     cpuScore = 0,
@@ -29,8 +31,10 @@ let isPlaying = true;
 function game(userChoice) {
     if (isPlaying) {
         cpuChoice = selection[Math.floor(Math.random() * selection.length)];
-        console.log('The computer chooses ' + cpuChoice);
-        console.log('You choose ' + userChoice);
+        user.innerHTML = ('You pick ' + userChoice);
+        cpu.innerHTML = ('The computer picks ' + cpuChoice);
+//        console.log('The computer chooses ' + cpuChoice);
+//        console.log('You choose ' + userChoice);
 
         switch (userChoice) {
             case 'Rock':
