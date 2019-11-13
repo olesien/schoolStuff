@@ -1,8 +1,10 @@
-let Rock = document.querySelector('.Rock');
-let Paper = document.querySelector('.Paper');
-let Scissors = document.querySelector('.Scissors');
+const Rock = document.querySelector('.Rock');
+const Paper = document.querySelector('.Paper');
+const Scissors = document.querySelector('.Scissors');
 const status = document.querySelector('#status');
 const score = document.querySelector('#score');
+const user = document.querySelector('#user');
+const cpu = document.querySelector('#cpu');
 
 let userScore = 0,
     cpuScore = 0,
@@ -24,19 +26,15 @@ Scissors.addEventListener('click', function () {
 
 });
 
-function reload() {
-    userScore = 0;
-    cpuScore = 0;
-    window.location.reload(true);
-}
-
 let isPlaying = true;
 
 function game(userChoice) {
     if (isPlaying) {
         cpuChoice = selection[Math.floor(Math.random() * selection.length)];
-        console.log('The computer chooses ' + cpuChoice);
-        console.log('You choose ' + userChoice);
+        user.innerHTML = ('You pick ' + userChoice);
+        cpu.innerHTML = ('The computer picks ' + cpuChoice);
+//        console.log('The computer chooses ' + cpuChoice);
+//        console.log('You choose ' + userChoice);
 
         switch (userChoice) {
             case 'Rock':
@@ -51,53 +49,55 @@ function game(userChoice) {
                     console.log('Error Rock');
                     break;
                 }
-            case 'Paper':
-                if (cpuChoice == 'Paper') {
-                    status.innerHTML = 'Nobody Wins'
-                } else if (cpuChoice == 'Scissors') {
-                    status.innerHTML = 'You lose';
-                    cpuScore++;
-                } else if (cpuChoice == 'Rock') {
-                    status.innerHTML = 'You win';
-                    userScore++;
-                } else {
-                    console.log('Error Paper');
-                }
-                break;
+                case 'Paper':
+                    if (cpuChoice == 'Paper') {
+                        status.innerHTML = 'Nobody Wins'
+                    } else if (cpuChoice == 'Scissors') {
+                        status.innerHTML = 'You lose';
+                        cpuScore++;
+                    } else if (cpuChoice == 'Rock') {
+                        status.innerHTML = 'You win';
+                        userScore++;
+                    } else {
+                        console.log('Error Paper');
+                    }
+                    break;
 
-            case 'Scissors':
-                if (cpuChoice == 'Scissors') {
-                    status.innerHTML = 'Nobody Wins';
-                } else if (cpuChoice == 'Rock') {
-                    status.innerHTML = 'You lose';
-                    cpuScore++;
-                } else if (cpuChoice == 'Paper') {
-                    status.innerHTML = 'You win';
-                    userScore++;
-                } else {
-                    console.log('Error Scissors');
-                }
-                break;
-            default:
-                console.log('Error Invalid');
-                break;
+                case 'Scissors':
+                    if (cpuChoice == 'Scissors') {
+                        status.innerHTML = 'Nobody Wins';
+                    } else if (cpuChoice == 'Rock') {
+                        status.innerHTML = 'You lose';
+                        cpuScore++;
+                    } else if (cpuChoice == 'Paper') {
+                        status.innerHTML = 'You win';
+                        userScore++;
+                    } else {
+                        console.log('Error Scissors');
+                    }
+                    break;
+                default:
+                    console.log('Error Invalid');
+                    break;
         }
         score.innerHTML = ('You have ' + userScore + ' while the computer has ' + cpuScore)
         if (userScore == 5) {
-            status.innerHTML = 'You win the game!'
-            isPlaying = false;
+            restart('win');
         } else if (cpuScore == 5) {
-            status.innerHTML = 'You lose the game!'
-            isPlaying = false;
+            restart('lose');
         }
-    } else {
-        let btn = document.createElement("BUTTON");
-        btn.innerHTML = "Restart";
-        btn.addEventListener('click', function () {
-            restart();
 
-        });
+        function restart(winlose) {
+            status.innerHTML = ('You ' + winlose + ' the game!')
+            isPlaying = false;
+            var btn = document.createElement("BUTTON");
+            btn.innerHTML = "Restart";
+            document.body.appendChild(btn);
+            btn.addEventListener('click', function () {
+                window.location.reload(true);
 
-
+            });
+        }
     }
+
 }
