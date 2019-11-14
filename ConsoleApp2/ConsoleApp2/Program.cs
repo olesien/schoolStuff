@@ -10,24 +10,26 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            int[] array = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            while (true) { //loop
+            int[] array = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //premade list
 
-            Console.Write("Enter N: ");
-            int n = int.Parse(Console.ReadLine());
+            Console.Write("Enter N: "); //to let user know what to type
+            int n = int.Parse(Console.ReadLine()); //stores what users typed to a int variable converted from str
 
-            for (int i = 1; i <= n; i += 2)
+            for (int i = 1; i <= n; i += 2) //this it to go 1, 3, 5 etc
             {
+                    //if number is more than one character (eg 11), it splits it to two 1's
                 for (int iteration = 0; iteration <= i.ToString().Length-1; iteration++)
+
                 {
-                    string tempi = i.ToString();
-                    int tempiint = int.Parse(tempi[iteration].ToString());
-                    array[tempiint] += 1;
-
-
+                    string tempi = i.ToString(); //from number to string so that it can be counted
+                    int tempiint = int.Parse(tempi[iteration].ToString()); //selects what numbers to use, for example 1 if 1
+                    array[tempiint] += 1; //adding that to the list
                 }
             }
+            //write the list to the user
             Console.WriteLine(array[0] + " " + array[1] + " " + array[2] + " " + array[3] + " " + array[4] + " " + array[5] + " " + array[6] + " " + array[7] + " " + array[8] + " " + array[9]);
-            Console.ReadKey();
+            }
 
 
         }
