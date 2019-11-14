@@ -11,28 +11,22 @@ namespace ConsoleApp2
         static void Main(string[] args)
         {
             int[] array = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            //array[0] += 1;
-            //Console.WriteLine(array[0]);
 
-            Console.Write("enter N:");
+            Console.Write("Enter N: ");
             int n = int.Parse(Console.ReadLine());
 
             for (int i = 1; i <= n; i += 2)
             {
-                //Console.WriteLine("yes" + i.ToString().Length);
                 for (int iteration = 0; iteration <= i.ToString().Length-1; iteration++)
                 {
                     string tempi = i.ToString();
-                    Console.WriteLine(tempi[iteration]);
-                    //Console.WriteLine(tempi[iteration]);
-                    //array[tempi[(it - 1)] - 1] += 1;
-                    //Console.WriteLine(i.ToString()[it-1]);
-                    //Console.WriteLine(": " + it);
+                    int tempiint = int.Parse(tempi[iteration].ToString());
+                    array[tempiint] += 1;
+
+
                 }
-                //Console.WriteLine(i);
             }
-            //Console.WriteLine(zero + " " + one + " " + two + " " + three + " " + four + " " + five + " " + six + " " + seven + " " + eight + " " + nine);
-            //Console.WriteLine(array[0]);
+            Console.WriteLine(array[0] + " " + array[1] + " " + array[2] + " " + array[3] + " " + array[4] + " " + array[5] + " " + array[6] + " " + array[7] + " " + array[8] + " " + array[9]);
             Console.ReadKey();
 
 
