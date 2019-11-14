@@ -25,9 +25,12 @@ namespace ConsoleApp2
 
             for (int i = 1; i <= n; i += 2)
             {
-                Console.WriteLine("yes" + i.ToString().Length);
+                //Console.WriteLine("yes" + i.ToString().Length);
                 for (int it = 1; it <= i.ToString().Length; it++)
                 {
+                    string tempi = i.ToString();
+                    Console.WriteLine(tempi[(it - 1)]);
+                    //Console.WriteLine(i.ToString()[it-1]);
                     //Console.WriteLine(": " + it);
                 }
                 //Console.WriteLine(i);
