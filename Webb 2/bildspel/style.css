@@ -1,0 +1,17 @@
+.image {
+    width: 500px;
+    height: 500px;
+    flex: 2;
+}
+
+.fas {
+    font-size: 50px;
+    flex: 1;
+    margin: auto;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    margin-top: 50px;
+}
