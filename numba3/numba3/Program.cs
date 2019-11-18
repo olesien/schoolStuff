@@ -8,11 +8,18 @@ namespace numba3
         {
             while (true)
             {
-                Console.Write("total amount of people: ");
+                Console.ReadKey();
+                /*Console.Write("total amount of people: ");
                 int people = int.Parse(Console.ReadLine());
+                string pref = "hej";
+                //string firstLetter = pref[0];
+                    pref = pref.Substring(1);
+                    //pref += firstLetter;
+                Console.WriteLine(pref); */
+                /*
                 Console.WriteLine("Allowed letters: V (left), H (right), A (EITHER), B (BOTH), I (NONE), example: BAVIABH ");
+
                 Console.Write("Preferences: ");
-                string pref = Console.ReadLine();
                 bool left = true; //applies to first left only
                 bool right = true;
                 int happyFinal = 0;
@@ -20,6 +27,11 @@ namespace numba3
                 //GÖR EN FOR LOOP SOM t.ex ändrar från först VHA, till HAV, till AVH
                 //https://stackoverflow.com/questions/3222125/fastest-way-to-remove-first-char-in-a-string
                 for (int times = 0; times < people; times++) {
+
+                    string firstLetter = pref[0];
+                    pref = pref.Substring(1);
+                    pref += firstLetter;
+
                 for (int i = 0; i < people; i++)
                 {
                     string current = pref[i].ToString();
@@ -60,7 +72,7 @@ namespace numba3
                             }
                             break;
                         case "B": //BOTH ONLY, LAST TO CHOOSE?
-                            /*if (right && (!(i == people - 1) || left))
+                            if (right && (!(i == people - 1) || left))
                             {
                                 happy++;
                                 right = false;
@@ -69,7 +81,7 @@ namespace numba3
                                     left = false;
                                 }
 
-                            }*/
+                            }
                             break;
                         case "I": 
                             happy++;
@@ -81,15 +93,19 @@ namespace numba3
 
 
                     }
+                   }
                         if (happy > happyFinal)
                         {
                             happyFinal = happy;
                         }
+                        happy = 0;
                     }
                     //Console.WriteLine(current);
 
-                    Console.WriteLine(happy);
             }
+                Console.WriteLine(happy);
+        }*/
+        }
         }
     }
 }
