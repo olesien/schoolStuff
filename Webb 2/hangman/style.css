@@ -1,0 +1,21 @@
+.p1 {
+    color: blue;
+}
+
+div {
+    display: flex;
+    : 5px;
+}
+
+p {
+    flex: 1;
+    background-color: blue;
+    height: 100px;
+    margin: 0 10px;
+
+}
+
+#pFirst,
+#p1 {
+    background-color: white;
+}
