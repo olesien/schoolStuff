@@ -12,10 +12,18 @@ p {
     background-color: blue;
     height: 100px;
     margin: 0 10px;
+    font-size: 50px;
 
 }
 
-#pFirst,
-#p1 {
-    background-color: white;
+#pFirst {
+    display: none;
+}
+
+.p0 {
+    background-color: green;
+}
+
+.p1 {
+    background-color: yellow;
 }
